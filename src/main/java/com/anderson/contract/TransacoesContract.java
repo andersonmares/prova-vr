@@ -1,8 +1,8 @@
 package com.anderson.contract;
 
-import com.anderson.enumerated.StatusTransacoesEnum;
-import com.anderson.dto.retorno.CartaoResponse;
-import com.anderson.dto.entrada.Transacao;
+import com.anderson.utils.StatusTransacoesEnum;
+import com.anderson.dto.CartaoResponse;
+import com.anderson.dto.Transacao;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -27,5 +27,5 @@ public interface TransacoesContract {
             @ApiResponse(responseCode = "500", description = "Internal Server Error")
     })
     @PostMapping
-    ResponseEntity<StatusTransacoesEnum> realizarTransacao(@RequestBody @Valid Transacao transacao);
+    ResponseEntity<StatusTransacoesEnum> executarTransacao(@RequestBody @Valid Transacao transacao);
 }

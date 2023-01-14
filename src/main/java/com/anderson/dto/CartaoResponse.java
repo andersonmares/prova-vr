@@ -1,4 +1,4 @@
-package com.anderson.dto.retorno;
+package com.anderson.dto;
 
 import com.anderson.domain.Cartao;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -8,10 +8,10 @@ import lombok.*;
 @AllArgsConstructor
 public class CartaoResponse {
 
-    @Schema(description = "Senha do cartão")
+    @Schema(description = "Senha do Cartão")
     private String senha;
 
-    @Schema(description = "Número do cartão")
+    @Schema(description = "Número do Cartão")
     private String numeroCartao;
 
     public CartaoResponse(Cartao cartao) {

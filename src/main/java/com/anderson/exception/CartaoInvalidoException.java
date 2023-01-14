@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class CartaoInvalidoException extends RuntimeException {
 
     public CartaoInvalidoException() {
-        super("Cartão inválido");
+        super("Cartão Inválido!");
     }
 }

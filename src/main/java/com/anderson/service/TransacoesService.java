@@ -5,7 +5,7 @@ import com.anderson.exception.SaldoInsuficienteException;
 import com.anderson.exception.SenhaInvalidaException;
 import com.anderson.domain.Cartao;
 import com.anderson.repository.CartaoRepository;
-import com.anderson.dto.entrada.Transacao;
+import com.anderson.dto.Transacao;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +45,7 @@ public class TransacoesService {
                     efetuaTransacao(cartao, transacao);
 
                 }, () -> {
-                    log.error("Cartão inexistente");
+                    log.error("Cartão Inexistente!");
                     throw new CartaoInexistenteTransacaoException();
                 });
     }

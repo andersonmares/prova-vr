@@ -1,4 +1,4 @@
-package com.anderson.enumerated;
+package com.anderson.utils;
 
 public enum StatusTransacoesEnum {
 

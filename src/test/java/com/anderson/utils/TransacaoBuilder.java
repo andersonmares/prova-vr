@@ -1,6 +1,6 @@
-package com.anderson.util;
+package com.anderson.utils;
 
-import com.anderson.dto.entrada.Transacao;
+import com.anderson.dto.Transacao;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 

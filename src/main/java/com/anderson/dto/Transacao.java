@@ -1,4 +1,4 @@
-package com.anderson.dto.entrada;
+package com.anderson.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -20,15 +20,15 @@ public class Transacao {
     @NotNull
     @Size(min = 16, message = "O cartão deve ter 16 números")
     @Size(max = 16, message = "O cartão deve ter 16 números")
-    @Schema(description = "Número do cartão", example = "6549873025634501", required = true)
+    @Schema(description = "Número do Cartão", example = "6549873025634501", required = true)
     private String numeroCartao;
 
     @NotNull
     @NotBlank
-    @Schema(description = "Senha do cartão", example = "1234", required = true)
+    @Schema(description = "Senha do Cartão", example = "1234", required = true)
     private String senhaCartao;
 
     @NotNull
-    @Schema(description = "Valor da transação", example = "113.34")
+    @Schema(description = "Valor da Transação", example = "113.34")
     private BigDecimal valor;
 }

@@ -5,8 +5,8 @@ import com.anderson.exception.CartaoInexistenteSaldoException;
 import com.anderson.exception.CartaoInvalidoException;
 import com.anderson.domain.Cartao;
 import com.anderson.repository.CartaoRepository;
-import com.anderson.dto.entrada.CriarCartao;
-import com.anderson.util.CartaoBuilder;
+import com.anderson.dto.CriarCartao;
+import com.anderson.utils.CartaoBuilder;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -18,6 +18,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.math.BigDecimal;
 import java.util.Optional;
 
+import static com.anderson.utils.Constants.NUMERO_CARTAO_INEXISTENTE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
@@ -33,15 +34,6 @@ class CartaoServiceTest {
     @Mock
     private CartaoRepository cartaoRepository;
 
-    /*
-    * O ArgumentCaptor tem o papel de pegar o argumento exato que foi passado como parâmetro de uma função,
-    * nesse caso é usado no teste quandoCartaoValidoSalvarCartao para verificarmos se o objeto Cartão foi saldo.
-    * Se o ArgumentCaptor não for usado e tentarmos fazer um verify com a variável cartaoPadraoEntidade (tipo Cartao) por exemplo,
-    * teremos um erro informando que os argumentos são diferentes, mesmo que seu conteúdo seja igual, isso acontece
-    * porque a referência na memória é diferente para o save que acontece no service e o verify save do teste, e com
-    * o ArgumentCaptor, obtemos o mesmo argumento da service com referência de memória e valores preenchidos para validar
-    * que a operação foi executada com sucesso.
-    * */
     @Captor
     ArgumentCaptor<Cartao> cartaoCaptor;
 
@@ -76,7 +68,7 @@ class CartaoServiceTest {
         when(cartaoRepository.findByNumeroCartao(any(String.class))).thenReturn(Optional.empty());
 
         assertThrows(CartaoInexistenteSaldoException.class,
-                () -> cartaoService.obterSaldoCartao("9999999999999993"));
+                () -> cartaoService.obterSaldoCartao(NUMERO_CARTAO_INEXISTENTE));
     }
 
     @Test

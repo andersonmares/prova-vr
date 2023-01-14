@@ -13,7 +13,7 @@ public class SwaggerDocumentationConfig {
 
         return new OpenAPI()
                 .info(new Info().title("desafio-vr")
-                        .description("Autorizador de transações para cartões de benefícios.")
-                        .version("v0.0.1"));
+                        .description("Mini Autorizador de Transações para Cartões VR.")
+                        .version("v1.0.0"));
     }
 }

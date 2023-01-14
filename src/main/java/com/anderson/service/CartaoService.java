@@ -5,8 +5,8 @@ import com.anderson.exception.CartaoInexistenteSaldoException;
 import com.anderson.exception.CartaoInvalidoException;
 import com.anderson.domain.Cartao;
 import com.anderson.repository.CartaoRepository;
-import com.anderson.dto.retorno.CartaoResponse;
-import com.anderson.dto.entrada.CriarCartao;
+import com.anderson.dto.CartaoResponse;
+import com.anderson.dto.CriarCartao;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class CartaoService {
     private CartaoRepository cartaoRepository;
 
     public CartaoResponse criarCartao(CriarCartao cartao) {
-        log.info("Criando um novo cartão");
+        log.info("Criando um Novo Cartão");
 
         verificaSeCartaoTemApenasNumeros(cartao.getNumeroCartao());
 
@@ -34,7 +34,7 @@ public class CartaoService {
         Cartao novoCartao = new Cartao(cartao);
         cartaoRepository.save(novoCartao);
 
-        log.info("Cartão {} criado com sucesso", cartao.getNumeroCartao());
+        log.info("Cartão {} criado com sucesso!", cartao.getNumeroCartao());
         return new CartaoResponse(novoCartao);
     }
 
@@ -48,7 +48,7 @@ public class CartaoService {
     private void verificaSeCartaoDuplicado(CriarCartao cartao) {
         cartaoRepository.findByNumeroCartao(cartao.getNumeroCartao())
                 .ifPresent(c -> {
-                    log.error("O cartão {} já existe", cartao.getNumeroCartao());
+                    log.error("O cartão {} já existe!", cartao.getNumeroCartao());
                     throw new CartaoDuplicadoException(cartao.getNumeroCartao(), cartao.getSenha());
                 });
     }

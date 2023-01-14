@@ -1,7 +1,7 @@
-package com.anderson.util;
+package com.anderson.utils;
 
 import com.anderson.domain.Cartao;
-import com.anderson.dto.entrada.CriarCartao;
+import com.anderson.dto.CriarCartao;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 

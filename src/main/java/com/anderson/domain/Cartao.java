@@ -1,6 +1,6 @@
 package com.anderson.domain;
 
-import com.anderson.dto.entrada.CriarCartao;
+import com.anderson.dto.CriarCartao;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
@@ -26,7 +26,6 @@ public class Cartao {
     @Type(type = "uuid-char")
     private UUID id;
 
-    // String utilizado porque senão aconteceria problema com cartão iniciando com zero.
     @NotNull
     @Column(name = "numeroCartao", length = 16)
     private String numeroCartao;
@@ -35,7 +34,6 @@ public class Cartao {
     @Column(name = "senha")
     private String senha;
 
-    // BigDecimal utilizado para ter um controle melhor sobre as casas decimais e arredondamento.
     @NotNull
     @Setter
     @Column(name = "saldo")
